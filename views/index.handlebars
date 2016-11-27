@@ -60,28 +60,32 @@
 					</div>
 					<div class="modal-body">
 						<form>
+							{{#if showAlternate}}
 							<h3 style="color:red;"> Please make sure the locator icon, on the top left of your screen, is turned on. </h3>
+							{{else}}
+							{{/if}}
+
 
 							<div class="form-group">
-					      <label for="sel1">Select Wifi Network</label>
-					      <select class="form-control" name="Wifi-Name"id="sel1">
-					      	<option value="UCSD-PROTECTED" >UCSD-PROTECTED</option>
-							    <option value="UCSD-GUEST" >UCSD-GUEST</option>
-							    <option value="eduroam" >eduroam</option>
-							    <option value="UCSD-DEVICE" >UCSD-DEVICE</option>
-							    <option value="RESNET-MUIR-E" >RESNET-MUIR-E</option>
-							    <option value="RESNET-MUIR" >RESNET-MUIR</option>
-							    <option value="RESNET-SIXTH-E" >RESNET-SIXTH-E</option>
-							    <option value="RESNET-SIXTH" >RESNET-SIXTH</option>
-							    <option value="RESNET-ERC-E" >RESNET-ERC-E</option>
-							    <option value="RESNET-ERC" >RESNET-ERC</option>
-							    <option value="RESNET-MARSHALL-E" >RESNET-MARSHALL-E</option>
-							    <option value="RESNET-MARSHALL" >RESNET-MARSHALL</option>
-							    <option value="RESNET-REVELLE-E" >RESNET-REVELLE-E</option>
-							    <option value="RESNET-REVELLE" >RESNET-REVELLE</option>
-							    <option value="Private/Other Network" >Private/Other Network</option>
-					      </select>
-					    
+								<label for="sel1">Select Wifi Network</label>
+								<select class="form-control" name="Wifi-Name"id="sel1">
+									<option value="UCSD-PROTECTED" >UCSD-PROTECTED</option>
+									<option value="UCSD-GUEST" >UCSD-GUEST</option>
+									<option value="eduroam" >eduroam</option>
+									<option value="UCSD-DEVICE" >UCSD-DEVICE</option>
+									<option value="RESNET-MUIR-E" >RESNET-MUIR-E</option>
+									<option value="RESNET-MUIR" >RESNET-MUIR</option>
+									<option value="RESNET-SIXTH-E" >RESNET-SIXTH-E</option>
+									<option value="RESNET-SIXTH" >RESNET-SIXTH</option>
+									<option value="RESNET-ERC-E" >RESNET-ERC-E</option>
+									<option value="RESNET-ERC" >RESNET-ERC</option>
+									<option value="RESNET-MARSHALL-E" >RESNET-MARSHALL-E</option>
+									<option value="RESNET-MARSHALL" >RESNET-MARSHALL</option>
+									<option value="RESNET-REVELLE-E" >RESNET-REVELLE-E</option>
+									<option value="RESNET-REVELLE" >RESNET-REVELLE</option>
+									<option value="Private/Other Network" >Private/Other Network</option>
+								</select>
+								
 
 								<label for="comment">Comment:</label>
 								<input type="text" class="form-control" id="pwd" name="User-Comments" placeholder="(Optional)">
@@ -91,15 +95,15 @@
 								<p>Personal Speed Rating:</p>
 
 								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-danger">
-								    <input type="radio" name="User-Rating" value="Slow"> Slow
-								  </label>
-								  <label class="btn btn-warning">
-								    <input type="radio" name="User-Rating" value="Average"> Average
-								  </label>
-								  <label class="btn btn-success">
-								    <input type="radio" name="User-Rating" value="Great"> Great
-								  </label>
+									<label class="btn btn-danger">
+										<input type="radio" name="User-Rating" value="Slow"> Slow
+									</label>
+									<label class="btn btn-warning">
+										<input type="radio" name="User-Rating" value="Average"> Average
+									</label>
+									<label class="btn btn-success">
+										<input type="radio" name="User-Rating" value="Great"> Great
+									</label>
 								</div>
 
 								<pre id="result"></pre>
@@ -128,28 +132,28 @@
 		<script type="text/javascript">
 			$.fn.serializeObject = function()
 			{
-			    var o = {};
-			    var a = this.serializeArray();
-			    $.each(a, function() {
-			        if (o[this.name] !== undefined) {
-			            if (!o[this.name].push) {
-			                o[this.name] = [o[this.name]];
-			            }
-			            o[this.name].push(this.value || '');
-			        } else {
-			            o[this.name] = this.value || '';
-			        }
-			    });
-			    return o;
+				var o = {};
+				var a = this.serializeArray();
+				$.each(a, function() {
+					if (o[this.name] !== undefined) {
+						if (!o[this.name].push) {
+							o[this.name] = [o[this.name]];
+						}
+						o[this.name].push(this.value || '');
+					} else {
+						o[this.name] = this.value || '';
+					}
+				});
+				return o;
 			};
 
 			$(function() {
-			    $('form').submit(function() {
-			        $('#result').text(JSON.stringify($('form').serializeObject()));
+				$('form').submit(function() {
+					$('#result').text(JSON.stringify($('form').serializeObject()));
 
-			        Cookies.set('name', JSON.stringify($('form').serializeObject()));
-			        return false;
-			    });
+					Cookies.set('name', JSON.stringify($('form').serializeObject()));
+					return false;
+				});
 			});
 
 		</script>
@@ -174,30 +178,30 @@
 				</div>
 			</div>
 
-        </div>
-
-        <div id="wifi">
-
-        	<a href="./wifi.html" class="btn btn-lg btn-info"  role="button" data-toggle="modal" data-target="#myModal">Check Wifi</a>
-
-        </div>
-
-        <div id="map"></div>
-
-
 		</div>
 
 		<div id="wifi">
 
-			<a href="" class="btn btn-lg btn-info"  role="button" data-toggle="modal" data-target="#myModal">Check Wifi</a>
+			<a href="./wifi.html" class="btn btn-lg btn-info"  role="button" data-toggle="modal" data-target="#myModal">Check Wifi</a>
 
 		</div>
 
-		
+		<div id="map"></div>
 
-		<!-- Leaflet Map and GeoJSON Stuff -->
 
-		<script>
+	</div>
+
+	<div id="wifi">
+
+		<a href="" class="btn btn-lg btn-info"  role="button" data-toggle="modal" data-target="#myModal">Check Wifi</a>
+
+	</div>
+
+	
+
+	<!-- Leaflet Map and GeoJSON Stuff -->
+
+	<script>
 
 		var map = L.map('map').setView([32.880824, -117.237583], 15);
 		mapLink =
@@ -222,28 +226,28 @@
 			}).addTo(map);
 
 			function saveText(text, filename){
-			  var a = document.createElement('a');
-			  a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
-			  a.setAttribute('download', filename);
-			  a.click()
+				var a = document.createElement('a');
+				a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
+				a.setAttribute('download', filename);
+				a.click()
 			}
 
-		
+			
 
 
 			// Return coordinates of current locations
 			map.locate() /* This will return map so you can do chaining */
-        .on('locationfound', function(e){
-            currentLat = e.latitude;
-            currentLng = e.longitude;
+			.on('locationfound', function(e){
+				currentLat = e.latitude;
+				currentLng = e.longitude;
 
-        })
-       .on('locationerror', function(e){
-            console.log(e);
-            alert("Location access denied.");
-        });
+			})
+			.on('locationerror', function(e){
+				console.log(e);
+				alert("Location access denied.");
+			});
 
-       	var myIcon = L.divIcon({className: 'my-div-icon'});
+			var myIcon = L.divIcon({className: 'my-div-icon'});
 
 			{{#each Wifi}}
 
@@ -322,7 +326,7 @@
 
 
 
-		
+			
 
 
 			var loc = L.geoJson(geojsonFeature, {
@@ -341,8 +345,8 @@
 	//		var b = JSON.parse(b);
 
 		//	console.log(b);
-			
-			
+		
+		
 
 			//var marker1 = L.marker(new L.LatLng(32.880824, -117.237583)).addTo(map);
 			//marker1.bindPopup("my tooltip text");
@@ -382,11 +386,11 @@
 				var speed = testResult.download;
 
 				var newgeojsonFeature = {
-				"type": "Feature",
-				"geometry": {
-					"type": "Point",
-					"coordinates": [currentLng, currentLat]
-				}
+					"type": "Feature",
+					"geometry": {
+						"type": "Point",
+						"coordinates": [currentLng, currentLat]
+					}
 				};
 
 				
@@ -418,7 +422,7 @@
 
 				var txtFile = "test.json";
 			//	var file = new File(txtFile,"write");
-				var str = JSON.stringify(x);
+			var str = JSON.stringify(x);
 
 			
 		/*		log("opening file...");
@@ -434,62 +438,65 @@
 				var yyyy = today.getFullYear();
 
 				if(dd<10) {
-				    dd='0'+dd;
+					dd='0'+dd;
 				} 
 
 				if(mm<10) {
-				    mm='0'+mm;
+					mm='0'+mm;
 				} 
-	 
+				
 				today = mm+'/'+dd+'/'+yyyy;
 
 				//console.log(y); 
 
 				var lol = {items: [
 					{"Coordinates": [currentLng, currentLat]},
-			    {"Latency": testResult.latency},
-			    {"Download": testResult.download},
-			    {"Upload": testResult.upload},
-			    {"Connection": conn},
-			    {"Date": today}
-				]};
+					{"Latency": testResult.latency},
+					{"Download": testResult.download},
+					{"Upload": testResult.upload},
+					{"Connection": conn},
+					{"Date": today}
+					]};
 
-				Cookies.set('swag', lol);
+					Cookies.set('swag', lol);
 
 
-				var bruh = L.geoJson(newgeojsonFeature, {
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, geoOption);
-					}
-				}).addTo(map);
+					var bruh = L.geoJson(newgeojsonFeature, {
+						pointToLayer: function (feature, latlng) {
+							return L.circleMarker(latlng, geoOption);
+						}
+					}).addTo(map);
 
-				bruh.bindPopup("Latency: " + testResult.latency + " ms<br>Download: " + testResult.download + " Mbps<br>Upload: " + testResult.upload + " Mbps<br>Wifi-Name: " + String(y[0]) + "<br>User-Comments: " + String(y[1]) + "<br>User-Rating: " + String(y[2])  + "<br>Date: " + today);
+					bruh.bindPopup("Latency: " + testResult.latency + " ms<br>Download: " + testResult.download + " Mbps<br>Upload: " + testResult.upload + " Mbps<br>Wifi-Name: " + String(y[0]) + "<br>User-Comments: " + String(y[1]) + "<br>User-Rating: " + String(y[2])  + "<br>Date: " + today);
+					
+
+					console.log(lol);
+					console.log("Shit is working!");
+
+
+				}
+
+				function onError(error) {
+					msgDiv.innerHTML = "Error "+ error.code + ": "+error.message;
+				}
+
 				
-
-				console.log(lol);
-				console.log("Shit is working!");
-
-
-			}
-
-			function onError(error) {
-				msgDiv.innerHTML = "Error "+ error.code + ": "+error.message;
-			}
-
-			
 			</script>
 
 
 		</div>
 
 		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-87205602-1', 'auto');
-		  ga('send', 'pageview');
+				ga('create', 'UA-88019177-1', 'auto');
+				ga('send', 'pageview');
+
+			</script>
 
 		</script>
 	</body>
