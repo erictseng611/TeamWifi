@@ -45,7 +45,7 @@ app.get('/index', index.view);
 app.get('/faq', faq.view);
 app.get('/history', history.viewHistory);
 app.get('/settings', settings.view);
-app.get('/index', index.view2);
+app.get('/indexNew', index.view2);
 // Example route
 // app.get('/users', user.list);
 
